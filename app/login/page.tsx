@@ -1,43 +1,56 @@
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
 import Image from "next/image";
-import logo from "@/public/logo.png";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import logo from "@/public/logo.png";
 
-const LoginPage = () => {
+export default function LoginPage() {
   return (
-    <>
-      <div className="absolute w-full h-full bg-orange-700 opacity-75">
-        <div className="h-full w-full bg-transparent z-10 p-4 flex justify-center items-center">
-          <Card className="h-[470px] w-[500px] z-40 shadow-lg bg-white">
-            <CardHeader className="items-center justify-center flex">
-              <Image src={logo} alt="NVGCHS Logo" width={200} height={200} />
-              <div className="text-2xl font-bold">Welcome to SDO-RTMS!</div>
-              <p className="text-sm">Records Tracking ang Management System</p>
-            </CardHeader>
-            <CardContent className="flex justify-center items-center gap-10">
-              <div className="flex flex-col gap-4 text-center">
-                <Button className="w-[300px] rounded-full bg-black text-white">
-                  <Link href="/user-page">Login</Link>
-                </Button>
-                <Button className="w-[300px] rounded-full bg-white border-l-black text-black">
-                  Forgot password?
-                </Button>
-              </div>
-            </CardContent>
-            <CardFooter>
-              <p className="text-sm mr-1">Don't have an account yet?</p>
-              <Link href="/register" className="text-sm text-blue-600">Register Now</Link>
-            </CardFooter>
-          </Card>
+    <div className="w-full max-w-[600px] bg-white rounded-2xl p-8">
+      <div className="max-w-[380px] mx-auto space-y-6">
+        <div className="flex justify-center mb-8">
+          <Image
+            src={logo || "/placeholder.svg"}
+            alt="NVGCHS Logo"
+            width={150}
+            height={150}
+          />
         </div>
+        <h1 className="text-3xl font-bold mb-0 text-black text-center">
+          Welcome to SDO-RTMS!
+        </h1>
+        <p className="text-sm text-gray-600 text-center mb-8">
+          Records Tracking and Management System
+        </p>
+
+        <Input
+          type="text"
+          placeholder="Email or username"
+          className="w-full bg-white border-gray-800 text-black placeholder:text-gray-600 focus:border-black-700 rounded-full py-6 px-4"
+        />
+        <Input
+          type="password"
+          placeholder="Password"
+          className="w-full bg-white border-gray-800 text-black placeholder:text-gray-600 focus:border-black-700 rounded-full py-6 px-4"
+        />
+
+        <Button className="w-full bg-black text-white hover:bg-gray-700 rounded-full py-6 font-bold text-lg">
+          <Link href="/user-page">Next</Link>
+        </Button>
+        <Button
+          variant="outline"
+          className="w-full bg-transparent border-gray-300 text-black hover:bg-gray-100 rounded-full py-6"
+        >
+          Forgot password?
+        </Button>
+
+        <p className="text-gray-500 text-center">
+          Don't have an account?{" "}
+          <Link href="/register" className="text-blue-500 hover:underline">
+            Sign up
+          </Link>
+        </p>
       </div>
-    </>
+    </div>
   );
-};
-export default LoginPage;
+}

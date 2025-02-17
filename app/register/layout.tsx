@@ -11,6 +11,8 @@ export default function RegistrationLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="w-full h-screen flex items-center">{children}</section>
+    <section className="min-h-screen bg-orange-700 flex flex-col items-center justify-center p-4">
+      {children}
+    </section>
   );
 }
