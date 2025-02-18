@@ -11,6 +11,6 @@ export default function UserPageLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="w-full h-screen flex items-center">{children}</section>
+    <section className="min-h-screen w-full h-screen flex flex-col justify-center items-center">{children}</section>
   );
 }

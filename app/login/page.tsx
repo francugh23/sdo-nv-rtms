@@ -33,10 +33,11 @@ export default function LoginPage() {
           placeholder="Password"
           className="w-full bg-white border-gray-800 text-black placeholder:text-gray-600 focus:border-black-700 rounded-full py-6 px-4"
         />
-
-        <Button className="w-full bg-black text-white hover:bg-gray-700 rounded-full py-6 font-bold text-lg">
-          <Link href="/user-page">Next</Link>
-        </Button>
+        <Link href="/user-page">
+          <Button className="w-full py-6 bg-black text-white hover:bg-gray-700 rounded-full font-bold text-lg">
+            Login
+          </Button>
+        </Link>
         <Button
           variant="outline"
           className="w-full bg-transparent border-gray-300 text-black hover:bg-gray-100 rounded-full py-6"
