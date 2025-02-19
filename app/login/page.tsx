@@ -34,7 +34,7 @@ export default function LoginPage() {
           className="w-full bg-white border-gray-800 text-black placeholder:text-gray-600 focus:border-black-700 rounded-full py-6 px-4"
         />
         <Link href="/user-page">
-          <Button className="w-full py-6 bg-black text-white hover:bg-gray-700 rounded-full font-bold text-lg">
+          <Button className="w-full py-6 mt-5 bg-black text-white hover:bg-gray-700 rounded-full font-bold text-lg">
             Login
           </Button>
         </Link>
