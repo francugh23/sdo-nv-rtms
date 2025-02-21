@@ -1,6 +1,5 @@
 "use client";
 
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import {
   SidebarFooter,
   SidebarMenu,
@@ -13,8 +12,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@radix-ui/react-dropdown-menu";
-import { ChevronsUpDown, LogOut, User } from "lucide-react";
-import { useState } from "react";
+import { ChevronsUpDown, LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const AppSidebarFooter = () => {
@@ -26,11 +24,7 @@ const AppSidebarFooter = () => {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <SidebarMenuButton className="h-[50px]">
-                <Avatar className="w-7 h-7 rounded-md">
-                  <AvatarImage src={undefined} />
-                  <AvatarFallback>RTMS</AvatarFallback>
-                </Avatar>
-                <span className="flex flex-col">
+                <div className="flex flex-col justify-between w-full">
                   <p className="text-xs font-bold">{"Johannes Franco"}</p>
                   <p
                     className="font-semibold"
@@ -40,7 +34,7 @@ const AppSidebarFooter = () => {
                   >
                     {"francojohannes23@gmail.com"}
                   </p>
-                </span>
+                </div>
                 <ChevronsUpDown size={20} />
               </SidebarMenuButton>
             </DropdownMenuTrigger>
@@ -49,9 +43,7 @@ const AppSidebarFooter = () => {
               className="bg-white border rounded-md w-[200px] p-2 text-sm my-1"
             >
               <DropdownMenuItem>
-                <SidebarMenuButton
-                  onClick={() => router.push("/login")}
-                >
+                <SidebarMenuButton onClick={() => router.push("/login")}>
                   <LogOut size={20} />
                   Sign Out
                 </SidebarMenuButton>

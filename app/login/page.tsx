@@ -25,7 +25,7 @@ export default function LoginPage() {
 
         <Input
           type="text"
-          placeholder="Email or username"
+          placeholder="Username"
           className="w-full bg-white border-gray-800 text-black placeholder:text-gray-600 focus:border-black-700 rounded-full py-6 px-4"
         />
         <Input

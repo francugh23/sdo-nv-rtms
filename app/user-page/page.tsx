@@ -43,7 +43,7 @@ const UserPage = () => {
   };
 
   return (
-    <Card className="w-full max-w-[600px] bg-white rounded-2xl p-8">
+    <Card className="w-full max-w-[800px] bg-white rounded-2xl p-8">
       <CardHeader>
         <CardTitle className="font-semibold tracking-wide uppercase">
           Form Submission
@@ -53,9 +53,9 @@ const UserPage = () => {
         </CardDescription>
       </CardHeader>
       <CardContent className="mx-auto space-y-4">
-        <div className="grid grid-cols-3 gap-4">
-          <div className="col-span-2">
-            <Input type="text" placeholder="Name" />
+        <div className="grid grid-cols-4 gap-4">
+          <div className="col-span-3">
+            <Input type="text" placeholder="Document ID" />
           </div>
           <div className="col-span-1">
             <Input
@@ -64,6 +64,9 @@ const UserPage = () => {
               readOnly
               value={"February 21, 2025"}
             />
+          </div>
+          <div className="col-span-1">
+            <Input type="text" placeholder="Name" />
           </div>
           <div className="col-span-1">
             <Input type="text" placeholder="School/Agency/District" />
