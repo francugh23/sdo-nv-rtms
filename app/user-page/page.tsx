@@ -27,14 +27,7 @@ import { useEffect } from "react";
 const UserPage = () => {
   const { toast } = useToast();
   const router = useRouter();
-
-  useEffect(() => {
-    const userId = localStorage.getItem("userId");
-    if (!userId) {
-      router.push("/login");
-    }
-  }, [router]);
-
+  
   const handleSubmit = () => {
     toast({
       title: "Form Submitted!",
