@@ -22,10 +22,18 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { ToastAction } from "@/components/ui/toast";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const UserPage = () => {
   const { toast } = useToast();
   const router = useRouter();
+
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+    if (!userId) {
+      router.push("/login");
+    }
+  }, [router]);
 
   const handleSubmit = () => {
     toast({
