@@ -11,7 +11,7 @@ export default function LoginLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="min-h-screen bg-[#FE6807] flex flex-col items-center justify-center p-4">
+    <section className="min-h-screen bg-[#355F2E] flex flex-col items-center justify-center p-4">
       {children}
     </section>
   );

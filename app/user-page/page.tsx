@@ -22,12 +22,12 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { ToastAction } from "@/components/ui/toast";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { Textarea } from "@/components/ui/textarea";
 
 const UserPage = () => {
   const { toast } = useToast();
   const router = useRouter();
-  
+
   const handleSubmit = () => {
     toast({
       title: "Form Submitted!",
@@ -44,10 +44,10 @@ const UserPage = () => {
   };
 
   return (
-    <Card className="w-full max-w-[800px] bg-white rounded-2xl p-8">
+    <Card className="w-full max-w-[1200px] bg-white rounded-2xl p-8">
       <CardHeader>
         <CardTitle className="font-semibold tracking-wide uppercase">
-          Form Submission
+          Document Submission Form
         </CardTitle>
         <CardDescription>
           Fill in all the necessary information.
@@ -55,29 +55,15 @@ const UserPage = () => {
       </CardHeader>
       <CardContent className="mx-auto space-y-4">
         <div className="grid grid-cols-4 gap-4">
-          <div className="col-span-3">
-            <Input type="text" placeholder="Document ID" />
-          </div>
-          <div className="col-span-1">
-            <Input
-              type="text"
-              placeholder="Date and Time"
-              readOnly
-              value={"February 21, 2025"}
-            />
-          </div>
           <div className="col-span-1">
             <Input type="text" placeholder="Name" />
           </div>
           <div className="col-span-1">
             <Input type="text" placeholder="School/Agency/District" />
           </div>
-          <div className="col-span-2">
-            <Input type="text" placeholder="Document Title" />
-          </div>
           <div className="col-span-1">
             <Select>
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger>
                 <SelectValue placeholder="Type" />
               </SelectTrigger>
               <SelectContent>
@@ -90,6 +76,19 @@ const UserPage = () => {
               </SelectContent>
             </Select>
           </div>
+          <div className="col-span-1">
+            <Input
+              type="text"
+              placeholder="Date and Time"
+              readOnly
+              value={"February 21, 2025"}
+              className="text-right"
+            />
+          </div>
+          <Textarea
+            className="col-span-4 min-h-[100px]"
+            placeholder="Document Title/Purpose"
+          />
         </div>
       </CardContent>
       <CardFooter className="flex flex-row justify-end space-x-2">

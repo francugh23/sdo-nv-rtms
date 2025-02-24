@@ -28,7 +28,7 @@ import { columns, data } from "./table/columns";
 
 const TrackDocumentPage = () => {
   return (
-    <Card className="w-full max-w-[900px] bg-white rounded-2xl p-2">
+    <Card className="w-full max-w-[1200px] bg-white rounded-2xl p-8">
       <CardTitle className="font-semibold tracking-wide uppercase">
         Track Document
       </CardTitle>

@@ -1,6 +1,9 @@
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import type { Metadata } from "next";
-import { AppSidebar } from "./navigation/sidebar";
+import Navbar from "./navigation/Navbar";
+import bg from "@/public/bg.jpg";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import Image from "next/image";
+import Footer from "./navigation/Footer";
 
 export const metadata: Metadata = {
   title: "SDO-RTMS User Page",
@@ -13,13 +16,12 @@ export default function UserPageLayout({
   children: React.ReactNode;
 }) {
   return (
-    <SidebarProvider>
-      <AppSidebar />
-      <SidebarInset>
-        <section className="min-h-screen w-full h-screen flex flex-col justify-center items-center">
-          {children}
-        </section>
-      </SidebarInset>
-    </SidebarProvider>
+    <div className="flex flex-col min-h-screen overflow-hidden">
+      <Navbar />
+      <section className="flex-1 flex flex-col items-center justify-center p-8 overflow-hidden">
+        {children}
+      </section>
+      <Footer />
+    </div>
   );
 }

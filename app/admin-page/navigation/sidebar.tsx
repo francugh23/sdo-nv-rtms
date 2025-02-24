@@ -23,6 +23,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import AppSidebarFooter from "./sidebar-footer";
+import Link from "next/link";
 
 export function AppSidebar() {
   return (
@@ -32,13 +33,17 @@ export function AppSidebar() {
       className="font-medium shadow"
     >
       {/* HEADER */}
-      <SidebarHeader className="bg-white min-h-[100px] p-0">
+      <SidebarHeader className="bg-[#355F2E] min-h-[100px] p-0">
         <section className="w-full h-full flex gap-1 justify-center items-center">
-          <span>
-            <Image src="/logo.png" alt="NVGCHS Logo" width={45} height={45} />
-          </span>
-          <h1 className="text-3xl font-bold">RTMS</h1>
-          <span className="text-xs align-text-bottom">v1.0</span>
+          <Link href="/user-page" className="flex items-center">
+            <span>
+              <Image src="/logo.png" alt="NVGCHS Logo" width={75} height={75} />
+            </span>
+            <h1 className="text-3xl font-bold text-white">RTMS</h1>
+            <span className="text-xs align-text-bottom text-gray-300">
+              v1.0
+            </span>
+          </Link>
         </section>
         <Separator />
       </SidebarHeader>

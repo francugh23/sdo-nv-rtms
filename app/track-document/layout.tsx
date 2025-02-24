@@ -1,6 +1,6 @@
-import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import type { Metadata } from "next";
-import { AppSidebar } from "../user-page/navigation/sidebar";
+import Navbar from "@/app/user-page/navigation/Navbar";
+import Footer from "../user-page/navigation/Footer";
 
 export const metadata: Metadata = {
   title: "SDO-RTMS Track Document",
@@ -13,13 +13,12 @@ export default function TrackDocumentLayout({
   children: React.ReactNode;
 }) {
   return (
-    <SidebarProvider>
-      <AppSidebar />
-      <SidebarInset>
-        <section className="min-h-screen w-full h-screen flex flex-col justify-center items-center">
-          {children}
-        </section>
-      </SidebarInset>
-    </SidebarProvider>
+    <div className="flex flex-col min-h-screen overflow-hidden">
+      <Navbar />
+      <section className="flex-1 flex flex-col items-center justify-center p-8 overflow-hidden">
+        {children}
+      </section>
+      <Footer />
+    </div>
   );
 }
