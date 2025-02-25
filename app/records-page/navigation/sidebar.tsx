@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, FolderPlus, Home, LucideIcon, Mails, Search } from "lucide-react";
+import { ChevronRight, File, FolderPlus, Home, LucideIcon, Mails, Search } from "lucide-react";
 import Image from "next/image";
 import {
   Sidebar,
@@ -33,13 +33,13 @@ export function AppSidebar() {
       className="font-medium shadow"
     >
       {/* HEADER */}
-      <SidebarHeader className="bg-[#355F2E] min-h-[100px] p-0">
+      <SidebarHeader className="bg-[#77B254] min-h-[100px] p-0">
         <section className="w-full h-full flex gap-1 justify-center items-center">
           <Link href="/records-page" className="flex items-center">
             <span>
               <Image src="/logo.png" alt="NVGCHS Logo" width={75} height={75} />
             </span>
-            <h1 className="text-3xl font-bold text-white">RTMS</h1>
+            <h1 className="text-2xl font-bold text-white">DocuTrack</h1>
             <span className="text-xs align-text-bottom text-gray-300">
               v1.0
             </span>
@@ -60,7 +60,43 @@ export function AppSidebar() {
             />
             <SidebarMenuSingle
               menuItems={[
-                { menuTitle: "Data Entry", url: "/data-entry", menuIcon: FolderPlus },
+                {
+                  menuTitle: "Data Entry",
+                  url: "/data-entry",
+                  menuIcon: FolderPlus,
+                },
+              ]}
+            />
+          </SidebarGroupContent>
+        </SidebarGroup>
+        <SidebarGroup>
+          <SidebarGroupLabel>Transaction</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenuSingle
+              menuItems={[
+                {
+                  menuTitle: "Pending",
+                  url: "/data-entry",
+                  menuIcon: File,
+                },
+              ]}
+            />
+            <SidebarMenuSingle
+              menuItems={[
+                {
+                  menuTitle: "Received",
+                  url: "/data-entry",
+                  menuIcon: File,
+                },
+              ]}
+            />
+            <SidebarMenuSingle
+              menuItems={[
+                {
+                  menuTitle: "Returned",
+                  url: "/data-entry",
+                  menuIcon: File,
+                },
               ]}
             />
           </SidebarGroupContent>

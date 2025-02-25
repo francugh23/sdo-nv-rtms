@@ -28,12 +28,15 @@ import { columns, data } from "./table/columns";
 
 const TrackDocumentPage = () => {
   return (
-    <Card className="w-full max-w-[1200px] bg-white rounded-2xl p-8">
+    <Card className="w-full max-w-[1200px] bg-white rounded-2xl p-12">
       <CardTitle className="font-semibold tracking-wide uppercase">
-        Track Document
+        Track Your Document in a Few Clicks
       </CardTitle>
       <div className="flex items-center justify-between mb-4">
-        <CardDescription>Track your necessary documents here.</CardDescription>
+        <CardDescription>
+          Track and trace your documents here! Input the tracking number provided
+          for your transaction, and click submit to view tracking details..
+        </CardDescription>
         <SearchDocument />
       </div>
       <CardContent className="mx-auto space-y-4">

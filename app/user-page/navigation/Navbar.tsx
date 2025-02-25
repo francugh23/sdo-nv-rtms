@@ -12,14 +12,14 @@ import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <nav className="bg-[#355F2E] sticky top-0 left-0 right-0 z-40 h-[4rem] flex justify-between items-center px-5 py-3">
+    <nav className="bg-[#77B254] sticky top-0 left-0 right-0 z-40 h-[4rem] flex justify-between items-center px-5 py-3">
       {/* Logo Section */}
       <section className="w-full h-full flex gap-1 justify-start items-center space-x-6">
         <Link href="/records-page" className="flex items-center">
           <span>
             <Image src="/logo.png" alt="NVGCHS Logo" width={50} height={50} />
           </span>
-          <h1 className="text-3xl font-bold text-white">RTMS</h1>
+          <h1 className="text-3xl font-bold text-white">DocuTrack</h1>
           <span className="text-xs align-text-bottom text-gray-300">v1.0</span>
         </Link>
 
