@@ -64,14 +64,13 @@ const UserPage = () => {
           <div className="col-span-1">
             <Select>
               <SelectTrigger>
-                <SelectValue placeholder="Type" />
+                <SelectValue placeholder="Document Type" />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
                   <SelectLabel>Options</SelectLabel>
-                  <SelectItem value="apple">Submit</SelectItem>
-                  <SelectItem value="banana">Apply</SelectItem>
-                  <SelectItem value="blueberry">Receive</SelectItem>
+                  <SelectItem value="transmitDocument">Transmit Document</SelectItem>
+                  <SelectItem value="application">Application</SelectItem>
                 </SelectGroup>
               </SelectContent>
             </Select>

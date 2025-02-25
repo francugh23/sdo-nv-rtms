@@ -13,17 +13,21 @@ import Image from "next/image";
 export default function Navbar() {
   return (
     <nav className="bg-[#77B254] sticky top-0 left-0 right-0 z-40 h-[4rem] flex justify-between items-center px-5 py-3">
-      {/* Logo Section */}
       <section className="w-full h-full flex gap-1 justify-start items-center space-x-6">
         <Link href="/records-page" className="flex items-center">
           <span>
-            <Image src="/logo.png" alt="NVGCHS Logo" width={50} height={50} />
+            <Image
+              src="/app_logo.png"
+              alt="DocuTrack Logo"
+              width={50}
+              height={50}
+              className="rounded-lg shadow-2xl"
+            />
           </span>
           <h1 className="text-3xl font-bold text-white">DocuTrack</h1>
           <span className="text-xs align-text-bottom text-gray-300">v1.0</span>
         </Link>
 
-        {/* Navigation Links (Desktop) */}
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList className="space-x-10">
             <NavigationMenuItem>

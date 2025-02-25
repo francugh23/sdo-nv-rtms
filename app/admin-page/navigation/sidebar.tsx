@@ -32,14 +32,13 @@ export function AppSidebar() {
       collapsible="offcanvas"
       className="font-medium shadow"
     >
-      {/* HEADER */}
-      <SidebarHeader className="bg-[#355F2E] min-h-[100px] p-0">
+      <SidebarHeader className="bg-[#77B254] min-h-[100px] p-0">
         <section className="w-full h-full flex gap-1 justify-center items-center">
           <Link href="/user-page" className="flex items-center">
             <span>
-              <Image src="/logo.png" alt="NVGCHS Logo" width={75} height={75} />
+              <Image src="/app_logo.png" alt="App Logo" width={60} height={60} className="rounded-lg shadow-2xl" />
             </span>
-            <h1 className="text-3xl font-bold text-white">RTMS</h1>
+            <h1 className="text-2xl font-bold text-white">DocuTrack</h1>
             <span className="text-xs align-text-bottom text-gray-300">
               v1.0
             </span>
