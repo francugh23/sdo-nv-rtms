@@ -17,6 +17,15 @@ import { useRouter } from "next/navigation";
 
 const AppSidebarFooter = () => {
   const router = useRouter();
+
+  const handleLogout = async () => {
+    const response = await fetch("/api/logout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({}),
+    })
+  }
+
   return (
     <SidebarFooter className="bg-white">
       <SidebarMenu className="cursor-pointer">

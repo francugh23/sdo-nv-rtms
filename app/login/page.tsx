@@ -5,13 +5,15 @@ import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import logo from "@/public/app_logo.png";
-import { checkCredentials } from "../actions/login";
-import { LoginCredential } from "./types";
+import { LoginCredential } from "../../types/login";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 export default function LoginPage() {
   const router = useRouter();
+  const { toast } = useToast();
+
 
   const [credentials, setCredentials] = useState<LoginCredential>({
     username: "",
@@ -27,9 +29,15 @@ export default function LoginPage() {
 
     const data = await response.json();
     if (data.success) {
+      console.log("Login Response:", data);
+      console.log("Redirecting to:", data.redirectPath);
       router.push(data.redirectPath);
     } else {
-      alert(data.error || "Login failed");
+      toast({
+        title: "Oops!",
+        description: "Invalid credentials, check your username or password.",
+        variant: "destructive"
+      });
     }
   };
 

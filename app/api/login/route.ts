@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getConnection } from "@/lib/db";
-import { LoginCredential, Role } from "@/app/login/types";
+import { LoginCredential, Role } from "@/types/login";
 import { signJwt } from "@/lib/auth";
 
 export async function POST(request: Request) {
@@ -15,6 +15,7 @@ export async function POST(request: Request) {
 
     if (rows.length === 0) {
       return NextResponse.json(
+        { message: "Invalid username or password" },
         { status: 401 }
       );
     }
@@ -36,13 +37,13 @@ export async function POST(request: Request) {
     const response = NextResponse.json({
       success: true,
       redirectPath,
-    })
+    });
 
     response.cookies.set("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production", 
-      sameSite: "strict", 
-      maxAge: 60 * 60 * 24, 
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      maxAge: 60 * 60 * 24,
     });
 
     return response;

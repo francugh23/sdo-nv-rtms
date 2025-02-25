@@ -1,6 +1,6 @@
 'use server'
 
-import { LoginCredential } from "../login/types"
+import { LoginCredential } from "../../types/login"
 import { redirect } from "next/navigation"
 
 export async function checkCredentials(data: LoginCredential) {

@@ -4,8 +4,13 @@ import { verifyJwt } from "@/lib/auth";
 
 export async function middleware(request: NextRequest) {
   const isApiRoute = request.nextUrl.pathname.startsWith("/api");
+  const isLoginRoute = request.nextUrl.pathname.startsWith("/login");
 
   if (isApiRoute) {
+    return NextResponse.next();
+  }
+
+  if (isLoginRoute) {
     return NextResponse.next();
   }
 
