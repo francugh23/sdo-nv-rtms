@@ -15,31 +15,31 @@ export default function LoginPage() {
   const { toast } = useToast();
 
 
-  const [credentials, setCredentials] = useState<LoginCredential>({
-    username: "",
-    password: "",
-  });
+  // const [credentials, setCredentials] = useState<LoginCredential>({
+  //   username: "",
+  //   password: "",
+  // });
 
-  const handleLogin = async () => {
-    const response = await fetch("/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(credentials),
-    });
+  // const handleLogin = async () => {
+  //   const response = await fetch("/api/login", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(credentials),
+  //   });
 
-    const data = await response.json();
-    if (data.success) {
-      console.log("Login Response:", data);
-      console.log("Redirecting to:", data.redirectPath);
-      router.push(data.redirectPath);
-    } else {
-      toast({
-        title: "Oops!",
-        description: "Invalid credentials, check your username or password.",
-        variant: "destructive"
-      });
-    }
-  };
+  //   const data = await response.json();
+  //   if (data.success) {
+  //     console.log("Login Response:", data);
+  //     console.log("Redirecting to:", data.redirectPath);
+  //     router.push(data.redirectPath);
+  //   } else {
+  //     toast({
+  //       title: "Oops!",
+  //       description: "Invalid credentials, check your username or password.",
+  //       variant: "destructive"
+  //     });
+  //   }
+  // };
 
   return (
     <div className="w-full max-w-[600px] bg-[#F7F7F7] rounded-2xl p-8 shadow-2xl">
@@ -59,23 +59,23 @@ export default function LoginPage() {
         <p className="text-sm text-gray-600 text-center mb-8">
           Where you can track your document anywhere.
         </p>
-        <form action={handleLogin} className="flex flex-col gap-2">
+        <form className="flex flex-col gap-2">
           <Input
             type="text"
             name="username"
             placeholder="Username"
-            onChange={(e) =>
-              setCredentials({ ...credentials, username: e.target.value })
-            }
+            // onChange={(e) =>
+            //   setCredentials({ ...credentials, username: e.target.value })
+            // }
             className="w-full bg-white border-gray-800 text-black placeholder:text-gray-600 focus:border-black-700 rounded-full py-6 px-4"
           />
           <Input
             type="password"
             name="password"
             placeholder="Password"
-            onChange={(e) =>
-              setCredentials({ ...credentials, password: e.target.value })
-            }
+            // onChange={(e) =>
+            //   setCredentials({ ...credentials, password: e.target.value })
+            // }
             className="w-full bg-white border-gray-800 text-black placeholder:text-gray-600 focus:border-black-700 rounded-full py-6 px-4"
           />
           <Button

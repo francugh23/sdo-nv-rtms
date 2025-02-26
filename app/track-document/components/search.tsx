@@ -9,7 +9,7 @@ const SearchDocument = () => {
   const [searchTerm, setSearchTerm] = useAtom(SearchDocumentID);
 
   return (
-    <div className="relative w-full max-w-[250px]">
+    <div className="w-full relative max-w-[500px]">
       <Input
         placeholder="Search document ID"
         value={searchTerm}

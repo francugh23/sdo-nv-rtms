@@ -21,8 +21,9 @@ import {
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import QRCode from "qrcode"
+import QRCode from "qrcode";
 import { redirect } from "next/dist/server/api-utils";
+import { Textarea } from "@/components/ui/textarea";
 
 interface ActionDocumentProps {
   trigger: React.ReactNode;
@@ -33,10 +34,10 @@ export const ActionDocument = ({ trigger }: ActionDocumentProps) => {
 
   const [action, setAction] = useState("");
   const [forwardTo, setForwardTo] = useState("");
-  const [receivedBy, ] = useState("Sir George");
+  const [receivedBy] = useState("Sir George");
 
   const handleGenerateQR = async () => {
-    const documentId = "DA001-02-21-25"; // Replace with dynamic input later
+    const documentId = "DA001-02-21-25";
     const qrData = {
       documentId,
       action,
@@ -45,18 +46,16 @@ export const ActionDocument = ({ trigger }: ActionDocumentProps) => {
     };
 
     try {
-      // Generate QR code as a data URL
       const qrCodeUrl = await QRCode.toDataURL(JSON.stringify(qrData));
 
-      console.log("Generated QR Code Data URL:", qrCodeUrl); // Debugging: Log the data URL
+      console.log("Generated QR Code Data URL:", qrCodeUrl);
 
-      // Create a temporary anchor element to trigger the download
       const link = document.createElement("a");
-      link.href = qrCodeUrl; // Set the data URL as the href
-      link.download = "qrcode.png"; // Specify the file name and extension
-      document.body.appendChild(link); // Append the anchor to the DOM
-      link.click(); // Trigger the download
-      document.body.removeChild(link); // Clean up the anchor element
+      link.href = qrCodeUrl;
+      link.download = "qrcode.png";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     } catch (error) {
       console.error("Error generating or downloading QR code:", error);
     }
@@ -65,7 +64,7 @@ export const ActionDocument = ({ trigger }: ActionDocumentProps) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="sm:max-w-[350px]">
+      <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
           <DialogTitle>Document Action</DialogTitle>
           <DialogDescription>
@@ -88,9 +87,9 @@ export const ActionDocument = ({ trigger }: ActionDocumentProps) => {
               <SelectContent>
                 <SelectGroup>
                   <SelectLabel>Options</SelectLabel>
-                  <SelectItem value="receive">Receive</SelectItem>
-                  <SelectItem value="return">Return</SelectItem>
-                  <SelectItem value="release">Release</SelectItem>
+                  <SelectItem value="receive">Received</SelectItem>
+                  <SelectItem value="return">Returned</SelectItem>
+                  <SelectItem value="release">Released</SelectItem>
                 </SelectGroup>
               </SelectContent>
             </Select>
@@ -98,18 +97,47 @@ export const ActionDocument = ({ trigger }: ActionDocumentProps) => {
           <div className="grid grid-cols-2 gap-4">
             <Select onValueChange={(value) => setForwardTo(value)}>
               <SelectTrigger className="col-span-1">
-                <SelectValue placeholder="Forward To" />
+                <SelectValue placeholder="Forwarded To" />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
                   <SelectLabel>Options</SelectLabel>
-                  <SelectItem value="receive">SDS</SelectItem>
-                  <SelectItem value="return">ASDS</SelectItem>
-                  <SelectItem value="return">CID</SelectItem>
+                  <SelectItem value="SDS">SDS</SelectItem>
+                  <SelectItem value="ASDS">ASDS</SelectItem>
+                  <SelectItem value="CID">CID</SelectItem>
+                  <SelectItem value="SGOD">SGOD</SelectItem>
+                  <SelectItem value="SUPPLY">SUPPLY</SelectItem>
+                  <SelectItem value="HR">HR</SelectItem>
+                  <SelectItem value="PAR">PAR</SelectItem>
+                  <SelectItem value="ADMIN">ADMIN</SelectItem>
                 </SelectGroup>
               </SelectContent>
             </Select>
-            <div className="col-span-1 flex items-center space-x-2">
+            <Select onValueChange={(value) => setForwardTo(value)}>
+              <SelectTrigger className="col-span-1">
+                <SelectValue placeholder="Sub Office" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>Options</SelectLabel>
+                  <SelectItem value="OSDS">OSDS</SelectItem>
+                  <SelectItem value="ASDS">ASDS</SelectItem>
+                  <SelectItem value="CID">CID</SelectItem>
+                  <SelectItem value="SGOD">SGOD</SelectItem>
+                  <SelectItem value="SUPPLY">SUPPLY</SelectItem>
+                  <SelectItem value="HR">HR</SelectItem>
+                  <SelectItem value="PAR">PAR</SelectItem>
+                  <SelectItem value="ADMIN">ADMIN</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+
+            <Textarea
+              className="col-span-2"
+              placeholder="Document Title/Purpose"
+            />
+            <Textarea className="col-span-2" placeholder="Remarks" />
+            <div className="col-span-2 flex justify-end items-end space-x-2">
               <Checkbox id="isHandcarry" />
               <Label
                 htmlFor="isHandcarry"
@@ -119,9 +147,8 @@ export const ActionDocument = ({ trigger }: ActionDocumentProps) => {
               </Label>
             </div>
           </div>
-
           <div className="col-span-1">
-            <Label htmlFor="receivedBy">Received By</Label>
+            <Label htmlFor="receivedBy">Action taken by:</Label>
             <Input
               type="text"
               id="receivedBy"
@@ -137,8 +164,8 @@ export const ActionDocument = ({ trigger }: ActionDocumentProps) => {
             <Button
               type="button"
               onClick={() => {
-                setOpen(false); 
-                handleGenerateQR(); 
+                setOpen(false);
+                handleGenerateQR();
               }}
             >
               Confirm

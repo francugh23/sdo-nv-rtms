@@ -25,23 +25,23 @@ import {
 import SearchDocument from "./components/search";
 import { DataTable } from "./table/data-table";
 import { columns, data } from "./table/columns";
+import { Label } from "@/components/ui/label";
 
 const TrackDocumentPage = () => {
+  
   return (
-    <Card className="w-full max-w-[1200px] bg-white rounded-2xl p-12">
-      <CardTitle className="font-semibold tracking-wide uppercase">
+    <Card className="w-full max-w-[700px] bg-white rounded-2xl p-8 space-y-4">
+      <CardTitle className="font-semibold tracking-wide uppercase item ml-6 text-xl">
         Track Your Document in a Few Clicks
       </CardTitle>
-      <div className="flex items-center justify-between mb-4">
-        <CardDescription>
-          Track and trace your documents here! Input the tracking number provided
-          for your transaction, and click submit to view tracking details..
-        </CardDescription>
+      <CardContent className="mx-auto space-x-2 flex items-center justify-center">
         <SearchDocument />
-      </div>
-      <CardContent className="mx-auto space-y-4">
-        <DataTable columns={columns} data={data} />
+        <Button>Submit</Button>
       </CardContent>
+      <CardFooter className="text-sm ">
+        Track and trace your documents here! Input the tracking number provided
+        for your transaction, and click submit to view tracking details..
+      </CardFooter>
     </Card>
   );
 };

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import LoginFooter from "./navigation/Footer";
 
 export const metadata: Metadata = {
   title: "DocuTrack Login",
@@ -11,8 +12,11 @@ export default function LoginLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="min-h-screen bg-[#77B254] flex flex-col items-center justify-center p-4">
-      {children}
-    </section>
+    <>
+      <section className="min-h-screen bg-[#FBF3B9] flex flex-col items-center justify-center p-4">
+        {children}
+      </section>
+      <LoginFooter />
+    </>
   );
 }

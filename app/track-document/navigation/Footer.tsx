@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Footer() {
+export default function TrackDocumentFooter() {
   return (
     <footer className="flex flex-col items-center justify-center bg-gray-300 text-gray-600 sticky bottom-0 left-0 right-0 py-4 border-t border-gray-200">
       <div className="flex items-center space-x-4 mb-2">

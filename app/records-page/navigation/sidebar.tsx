@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, File, FolderPlus, Home, LucideIcon, Mails, Search } from "lucide-react";
+import { CheckCheck, ChevronRight, File, FolderPlus, Home, Loader, LucideIcon, Mails, Search, Undo2 } from "lucide-react";
 import Image from "next/image";
 import {
   Sidebar,
@@ -77,7 +77,7 @@ export function AppSidebar() {
                 {
                   menuTitle: "Pending",
                   url: "/data-entry",
-                  menuIcon: File,
+                  menuIcon: Loader,
                 },
               ]}
             />
@@ -86,7 +86,7 @@ export function AppSidebar() {
                 {
                   menuTitle: "Received",
                   url: "/data-entry",
-                  menuIcon: File,
+                  menuIcon: CheckCheck,
                 },
               ]}
             />
@@ -95,7 +95,7 @@ export function AppSidebar() {
                 {
                   menuTitle: "Returned",
                   url: "/data-entry",
-                  menuIcon: File,
+                  menuIcon: Undo2,
                 },
               ]}
             />
