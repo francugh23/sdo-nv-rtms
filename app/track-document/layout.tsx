@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Navbar from "@/app/user-page/navigation/Navbar";
-import Footer from "../user-page/navigation/Footer";
+import Navbar from "@/app/client/navigation/Navbar";
+import Footer from "../client/navigation/Footer";
 import TrackDocumentNavbar from "./navigation/Navbar";
 import TrackDocumentFooter from "./navigation/Footer";
 

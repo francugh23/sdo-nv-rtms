@@ -24,7 +24,9 @@ export default function TrackDocumentNavbar() {
               className="rounded-lg shadow-2xl"
             />
           </span>
-          <h1 className="text-3xl font-bold text-white ml-2">DocuTrack</h1>
+          <h1 className="text-3xl font-bold text-white ml-2 hover:text-gray-300 transition-colors">
+            DocuTrack
+          </h1>
         </Link>
 
         <NavigationMenu className="hidden lg:flex">
